@@ -1,10 +1,12 @@
 package springboot.demo.repository;
 
+import org.springframework.stereotype.Component;
 import springboot.demo.domain.Member;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();

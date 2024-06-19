@@ -15,17 +15,20 @@ import springboot.demo.service.OrderServiceImpl;
 public class AppConfig {
     @Bean
    public MemberService memberService() {
-       return new MemberServiceImpl(new MemoryMemberRepository());
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository());
    }
 
    @Bean
    public OrderService orderService() {
-       return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+       System.out.println("call AppConfig.orderService");
+       return new OrderServiceImpl(memberRepository(), new FixDiscountPolicy());
    }
 
    @Bean
    public MemberRepository memberRepository() {
-       return new MemoryMemberRepository();
+       System.out.println("call AppConfig.memberRepository");
+        return new MemoryMemberRepository();
    }
 
    @Bean
